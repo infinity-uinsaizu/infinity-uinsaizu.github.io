@@ -1,0 +1,58 @@
+{{ define "main" }}
+
+<h1>{{ .Title }}</h1>
+
+{{ $paginator := .Paginate .Pages 3 }}
+
+<div class="member-list">
+    {{ range $paginator.Pages }}
+    <a
+        href="{{ .RelPermalink }}"
+        class="member-card"
+        style="text-decoration: none"
+    >
+        <div class="member-avatar-wrap">
+            {{ if .Params.foto }}
+            <img
+                src="{{ .Params.foto }}"
+                class="member-avatar"
+                alt="{{ .Title }}"
+            />
+            {{ else }}
+            <div
+                style="
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0, 0, 0, 0.05);
+                    border-radius: 8px;
+                "
+            ></div>
+            {{ end }}
+        </div>
+
+        <div class="member-info">
+            <div class="member-name">{{ .Title }}</div>
+            <div class="member-role">{{ .Params.jabatan }}</div>
+            {{ if .Params.angkatan }}
+            <div style="margin-top: 6px; font-size: 0.8rem; opacity: 0.4">
+                Angkatan {{ .Params.angkatan }}
+            </div>
+            {{ end }}
+        </div>
+    </a>
+    {{ end }}
+</div>
+
+{{ if gt $paginator.TotalPages 1 }}
+<nav class="member-pagination" aria-label="Navigasi halaman">
+    {{ if $paginator.HasPrev }}
+    <a href="{{ $paginator.Prev.URL }}">← Sebelumnya</a>
+    {{ end }}
+    <span class="member-page-number"
+        >{{ $paginator.PageNumber }} / {{ $paginator.TotalPages }}</span
+    >
+    {{ if $paginator.HasNext }}
+    <a href="{{ $paginator.Next.URL }}">Berikutnya →</a>
+    {{ end }}
+</nav>
+{{ end }} {{ end }}

@@ -1,0 +1,31 @@
+baseURL = "https://infinity-uinsaizu.github.io/"
+languageCode = "id-ID"
+title = "INFINITY"
+
+theme = "paper"
+
+[params]
+    color = "gray"
+    customCSS = ["custom.css"]
+
+    avatar = "images/avatar.png"
+    name = "@infinity.uinsaizu"
+    bio = "Information Science and Library Community"
+    instagram = "infinity.uinsaizu"
+
+
+
+[[menu.main]]
+    name = "Posts"
+    url = "/posts/"
+    weight = 1
+
+[[menu.main]]
+    name = "Entity"
+    url = "/entity/"
+    weight = 2
+
+[[menu.main]]
+    name = "About"
+    url = "/about/"
+    weight = 3
