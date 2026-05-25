@@ -4,28 +4,38 @@ title = "INFINITY"
 
 theme = "paper"
 
+# Aktifkan taxonomies
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+
 [params]
-    color = "gray"
-    customCSS = ["custom.css"]
+  color = "gray"
+  customCSS = ["custom.css"]
 
-    avatar = "images/avatar.png"
-    name = "@infinity.uinsaizu"
-    bio = "Information Science and Library Community"
-    instagram = "infinity.uinsaizu"
+  avatar = "images/avatar.png"
+  name = "@infinity.uinsaizu"
+  bio = "Information Science and Library Community"
+  instagram = "infinity.uinsaizu"
 
-
-
-[[menu.main]]
-    name = "Posts"
-    url = "/posts/"
-    weight = 1
+  dateFormat = "2 January 2006"
 
 [[menu.main]]
-    name = "Entity"
-    url = "/entity/"
-    weight = 2
+  name = "Posts"
+  url = "/posts/"
+  weight = 1
 
 [[menu.main]]
-    name = "About"
-    url = "/about/"
-    weight = 3
+  name = "Entity"
+  url = "/entity/"
+  weight = 2
+
+# [[menu.main]]
+#   name = "Tags"
+#   url = "/tags/"
+#   weight = 3
+
+[[menu.main]]
+  name = "About"
+  url = "/about/"
+  weight = 4

@@ -1,0 +1,76 @@
+{{ define "main" }}
+
+<div style="margin-bottom: 2rem">
+    <div style="font-size: 0.8rem; opacity: 0.45; margin-bottom: 6px">Tag</div>
+    <h1 style="margin: 0; display: flex; align-items: center; gap: 10px">
+        <span
+            style="
+                font-size: 1rem;
+                font-weight: 600;
+                padding: 4px 14px;
+                border-radius: 999px;
+                background: rgba(0, 0, 0, 0.05);
+            "
+            >#{{ .Title }}</span
+        >
+    </h1>
+    <p style="margin-top: 10px; opacity: 0.5; font-size: 0.88rem">
+        {{ len .Pages }} artikel
+    </p>
+</div>
+
+{{ $paginator := .Paginate .Pages 10 }}
+
+<div style="display: flex; flex-direction: column; gap: 0">
+    {{ range $paginator.Pages }}
+    <a
+        href="{{ .RelPermalink }}"
+        style="
+            display: block;
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+            text-decoration: none;
+            color: inherit;
+        "
+    >
+        <div style="font-weight: 600; margin-bottom: 4px">{{ .Title }}</div>
+        <div
+            style="
+                display: flex;
+                flex-wrap: wrap;
+                gap: 6px 14px;
+                font-size: 0.82rem;
+                opacity: 0.5;
+            "
+        >
+            <span>{{ .Date.Format site.Params.dateFormat }}</span>
+            <span>{{ .ReadingTime }} menit baca</span>
+            {{ with .Params.categories }} {{ range . }}
+            <span
+                style="
+                    padding: 1px 8px;
+                    border-radius: 4px;
+                    background: rgba(0, 0, 0, 0.05);
+                    opacity: 1;
+                "
+                >{{ . }}</span
+            >
+            {{ end }} {{ end }}
+        </div>
+    </a>
+    {{ end }}
+</div>
+
+{{ if gt $paginator.TotalPages 1 }}
+<nav class="member-pagination" style="margin-top: 2rem">
+    {{ if $paginator.HasPrev }}
+    <a href="{{ $paginator.Prev.URL }}">← Sebelumnya</a>
+    {{ end }}
+    <span class="member-page-number">
+        {{ $paginator.PageNumber }} / {{ $paginator.TotalPages }}
+    </span>
+    {{ if $paginator.HasNext }}
+    <a href="{{ $paginator.Next.URL }}">Berikutnya →</a>
+    {{ end }}
+</nav>
+{{ end }} {{ end }}

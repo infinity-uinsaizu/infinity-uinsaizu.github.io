@@ -825,3 +825,77 @@ main section {
         gap: 6px !important;
     }
 }
+
+/* =======================================================
+   DARK MODE — KONTEN ARTIKEL
+======================================================= */
+
+.dark .prose,
+.dark .prose p,
+.dark .prose li,
+.dark .prose blockquote {
+    color: rgba(255, 255, 255, 0.88) !important;
+}
+
+.dark .prose h1,
+.dark .prose h2,
+.dark .prose h3,
+.dark .prose h4 {
+    color: rgba(255, 255, 255, 0.96) !important;
+}
+
+.dark .prose a {
+    color: rgba(255, 255, 255, 0.75) !important;
+    text-decoration-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.dark .prose a:hover {
+    color: #fff !important;
+    text-decoration-color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.dark .prose code {
+    background: rgba(255, 255, 255, 0.08) !important;
+    color: rgba(255, 255, 255, 0.85) !important;
+    border-radius: 4px !important;
+    padding: 1px 6px !important;
+}
+
+.dark .prose pre {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+.dark .prose pre code {
+    background: transparent !important;
+    color: rgba(255, 255, 255, 0.82) !important;
+}
+
+.dark .prose blockquote {
+    border-left-color: rgba(255, 255, 255, 0.2) !important;
+    color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.dark .prose hr {
+    border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+.dark .prose strong {
+    color: rgba(255, 255, 255, 0.95) !important;
+}
+
+.dark .prose table th {
+    background: rgba(255, 255, 255, 0.06) !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.dark .prose table td {
+    color: rgba(255, 255, 255, 0.75) !important;
+    border-color: rgba(255, 255, 255, 0.07) !important;
+}
+
+/* Konten entity (about, bio) */
+.dark .ep-bio,
+.dark .ep-bio p {
+    color: rgba(255, 255, 255, 0.8) !important;
+}

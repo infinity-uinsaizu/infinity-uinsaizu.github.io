@@ -1,7 +1,9 @@
 +++
 date = '2026-05-23T18:05:05+07:00'
-draft = true
+draft = false
 title = 'Tutorial Install SLiMS'
+tags = ['Tutorial', 'SLiMS', 'Perpustakaan']
+categories = ['Teknologi']
 +++
 
 ## Cara Install SLiMS (Di Lokal)
