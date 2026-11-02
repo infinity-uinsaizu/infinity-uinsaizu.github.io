@@ -1,8 +1,7 @@
 baseURL = "https://infinity-uinsaizu.github.io/"
 languageCode = "id-ID"
 title = "INFINITY"
-
-theme = "paper"
+enableRobotsTXT = true
 
 # Aktifkan taxonomies
 [taxonomies]
@@ -10,32 +9,24 @@ theme = "paper"
   category = "categories"
 
 [params]
-  color = "gray"
-  customCSS = ["custom.css"]
-
   avatar = "images/avatar.png"
   name = "@infinity.uinsaizu"
   bio = "Information Science and Library Community"
   instagram = "infinity.uinsaizu"
-
   dateFormat = "2 January 2006"
+  description = "Komunitas mahasiswa Ilmu Perpustakaan dan Informasi UIN Prof. K. H. Saifuddin Zuhri."
 
 [[menu.main]]
-  name = "Posts"
+  name = "Artikel"
   url = "/posts/"
   weight = 1
 
 [[menu.main]]
-  name = "Entity"
+  name = "Anggota"
   url = "/entity/"
   weight = 2
 
-# [[menu.main]]
-#   name = "Tags"
-#   url = "/tags/"
-#   weight = 3
-
 [[menu.main]]
-  name = "About"
+  name = "Tentang"
   url = "/about/"
-  weight = 4
+  weight = 3

@@ -19,23 +19,22 @@
                 alt="{{ .Title }}"
             />
             {{ else }}
-            <div
-                style="
-                    width: 100%;
-                    height: 100%;
-                    background: rgba(0, 0, 0, 0.05);
-                    border-radius: 8px;
-                "
-            ></div>
+            <div class="member-avatar-placeholder" aria-hidden="true">
+                {{ substr .Title 0 1 | upper }}
+            </div>
             {{ end }}
         </div>
 
         <div class="member-info">
             <div class="member-name">{{ .Title }}</div>
-            <div class="member-role">{{ .Params.jabatan }}</div>
-            {{ if .Params.angkatan }}
-            <div style="margin-top: 6px; font-size: 0.8rem; opacity: 0.4">
-                Angkatan {{ .Params.angkatan }}
+            {{ if or .Params.jabatan .Params.angkatan }}
+            <div class="member-meta">
+                {{ with .Params.jabatan }}
+                <span class="member-role">{{ . }}</span>
+                {{ end }}
+                {{ with .Params.angkatan }}
+                <span class="member-cohort">Angkatan {{ . }}</span>
+                {{ end }}
             </div>
             {{ end }}
         </div>

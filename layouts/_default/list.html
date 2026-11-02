@@ -1,0 +1,28 @@
+{{ define "main" }}
+<header class="page-heading">
+    <p class="eyebrow">Jelajahi</p>
+    <h1>{{ .Title }}</h1>
+    {{ with .Description }}<p class="page-intro">{{ . }}</p>{{ end }}
+</header>
+
+{{ $paginator := .Paginate .Pages 10 }}
+<div class="article-list">
+    {{ range $paginator.Pages }}
+    <article class="article-card">
+        <p class="article-date"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format site.Params.dateFormat }}</time> · {{ .ReadingTime }} menit baca</p>
+        <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+        {{ with .Summary }}<p>{{ . | plainify | truncate 180 }}</p>{{ end }}
+        {{ with .Params.tags }}<div class="tag-list">{{ range . }}<a class="tag" href="{{ "tags/" | relURL }}{{ . | urlize }}/">#{{ . }}</a>{{ end }}</div>{{ end }}
+    </article>
+    {{ else }}
+    <p class="empty-state">Belum ada konten di sini.</p>
+    {{ end }}
+</div>
+{{ if gt $paginator.TotalPages 1 }}
+<nav class="pagination" aria-label="Navigasi halaman">
+    {{ if $paginator.HasPrev }}<a href="{{ $paginator.Prev.URL }}">← Sebelumnya</a>{{ else }}<span></span>{{ end }}
+    <span>{{ $paginator.PageNumber }} / {{ $paginator.TotalPages }}</span>
+    {{ if $paginator.HasNext }}<a href="{{ $paginator.Next.URL }}">Berikutnya →</a>{{ else }}<span></span>{{ end }}
+</nav>
+{{ end }}
+{{ end }}

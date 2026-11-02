@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="{{ site.Language.LanguageCode | default "id-ID" }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#f5f4ed">
+        <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . | plainify | truncate 160 }}{{ else }}{{ site.Params.description }}{{ end }}{{ end }}">
+        <title>{{ if .IsHome }}{{ site.Title }} — {{ site.Params.bio }}{{ else }}{{ .Title }} — {{ site.Title }}{{ end }}</title>
+        <link rel="canonical" href="{{ .Permalink }}">
+        <link rel="stylesheet" href="{{ "css/site.css" | relURL }}">
+        <link rel="icon" type="image/svg+xml" href="{{ "favicon.svg" | relURL }}">
+        {{ block "head" . }}{{ end }}
+    </head>
+    <body>
+        <a class="skip-link" href="#main">Lewati ke konten</a>
+        <header class="site-header">
+            <div class="header-inner">
+                <a class="brand" href="{{ site.Home.RelPermalink }}" aria-label="{{ site.Title }} — beranda">
+                    <span class="brand-mark" aria-hidden="true">∞</span>
+                    <span class="brand-copy">
+                        <strong>{{ site.Title }}</strong>
+                        <small>Ilmu · Informasi · Komunitas</small>
+                    </span>
+                </a>
+                <nav class="site-nav" aria-label="Navigasi utama">
+                    {{ range site.Menus.main }}
+                    <a href="{{ .URL }}"{{ if hasPrefix $.RelPermalink .URL }} aria-current="page"{{ end }}>{{ .Name }}</a>
+                    {{ end }}
+                </nav>
+            </div>
+        </header>
+        <main id="main" class="site-main">
+            {{ block "main" . }}{{ end }}
+        </main>
+        <footer class="site-footer">
+            <div class="footer-inner">
+                <a class="footer-brand" href="{{ site.Home.RelPermalink }}">{{ site.Title }}<span> / UIN Saizu</span></a>
+                <p>{{ site.Params.bio }}</p>
+                <a href="https://instagram.com/{{ site.Params.instagram }}" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+            </div>
+        </footer>
+    </body>
+</html>
